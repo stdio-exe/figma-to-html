@@ -1,7 +1,11 @@
 * {
   box-sizing: border-box; /* 47. Box-sizing */
 }
-
+/* 86. CSS Variables */
+:root {
+  --font-heading: "Sen", sans-serif;
+  --primary-color: #ffb900;
+}
 html {
   font-size: 62.5%;
 }
@@ -25,8 +29,12 @@ a {
   text-align: center;
   font-size: 1.6rem;
   font-weight: 600;
-  border-radius: 24.5px;
+  border-radius: 999px;
   background: #171100;
+}
+
+.btn:hover {
+  opacity: 0.9;
 }
 .main-content {
   width: 1170px;
@@ -41,6 +49,7 @@ a {
 .header.fixed {
   position: sticky; /* 87.6: Position: Sticky; */
   top: -28px;
+  z-index: 1; /* Để khi cuộn trang web xuống ảnh không chèn lên trên */
 }
 .header .body {
   display: flex; /* Làm cho 3 class Logo, nav, action nằm ngang ra */
@@ -86,4 +95,164 @@ a {
 .header .btn-sign-up {
   min-width: 144px;
   margin-left: 49px;
+}
+
+/* ==================hero====================== */
+.hero {
+  padding: 56px 0 65px; /* Nếu dùng margin-top = 56px; thì sẽ không có màu nền nằm giữa header và hero */
+  background-color: #fffcf4;
+}
+
+.hero .body {
+  display: flex;
+}
+/* ==================== Hero left ================== */
+.hero .media-block {
+  position: relative; /* 87.2: CSS Position: Chỉnh khối hero-summary so với khối media-block*/
+  width: 48%; /* Khối media-block nằm bên trái có chiều rộng bằng 48% khối hero */
+}
+
+.hero .media-block .img {
+  width: 470px;
+  height: 685px;
+  object-fit: cover; /* Giúp ảnh không làm vỡ giao diện khi kích thước lớn hơn cài đặt */
+  border-radius: 20px;
+}
+
+.hero .hero-summary {
+  width: 270px;
+  padding: 24px;
+  position: absolute; /* 87.2: CSS Position: Chỉnh khối hero-summary so với khối media-block*/
+  bottom: 48px;
+  right: 0;
+  /* Chỉnh nền cho khối hero-summary */
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.05);
+  /* End */
+}
+
+.hero-summary .item {
+  display: flex;
+  align-items: center;
+}
+
+.hero-summary .item + .item {
+  /* 31. Combinator selectors: Tác động vào 1 class item nằm sau 1 class item khác */
+  margin-top: 22px;
+}
+.hero-summary .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff9e8;
+  /* background-color: blue; */
+}
+
+.hero-summary .icon2 {
+  background-color: #fcefff;
+}
+
+.hero-summary .icon3 {
+  background-color: #ebeaff;
+}
+
+.hero-summary .info {
+  margin-left: 16px;
+}
+
+.hero-summary .lable {
+  color: #5f5b53;
+  font-size: 1.4rem;
+  line-height: 1.86; /* 185.714% */
+}
+
+.hero-summary .title {
+  color: #171100;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.67; /* 166.667% */
+}
+/* ======================= Hero right ======================== */
+.hero .content-block {
+  width: 52%; /* Khối content-block nằm bên phải có chiều rộng bằng 52% khối hero */
+  padding-left: 130px;
+  padding-top: 64px;
+}
+
+.hero .heading {
+  color: #171100;
+  font-family: var(--font-heading); /* 86. CSS Variables */
+  font-size: 5.8rem;
+  font-weight: 700;
+  line-height: 1.17; /* 117.241% */
+  letter-spacing: -1.16px;
+}
+
+.hero .desc {
+  margin-top: 22px;
+  color: #5f5b53;
+  font-size: 1.8rem;
+  line-height: 1.67; /* 166.667% */
+}
+
+.hero .cta-group {
+  margin-top: 38px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-cta {
+  min-width: 180px;
+  background-color: var(--primary-color);
+  line-height: 64px;
+}
+.hero .watch-video {
+  margin-left: 28px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer; /* Thay đổi hình dạng con trỏ chuột khi rê (hover) vào phần tử. */
+}
+
+.hero .watch-video .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.07);
+}
+
+.hero .watch-video span {
+  margin-left: 14px;
+  color: #171100;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.67; /* 166.667% */
+}
+
+.hero .desc-recent {
+  margin-top: 48px;
+}
+.hero .stats {
+  margin-top: 8px;
+}
+.hero .stats strong {
+  margin-right: 15px;
+  color: #171100;
+  font-family: var(--font-heading);
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 1.23; /* 122.727% */
+}
+
+.hero .stats strong:nth-child(2) {
+  margin-left: 28px;
 }
