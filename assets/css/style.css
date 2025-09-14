@@ -15,7 +15,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-/* ========common:Áp dụng chung cho cả website========= */
+/* ================common:Áp dụng chung cho cả website================= */
 a {
   text-decoration: none;
 }
@@ -51,6 +51,23 @@ a {
   max-width: calc(100% - 48px);
   margin-left: auto;
   margin-right: auto;
+}
+
+/* 67. Text overflow: Nếu tiêu đề dài thì cắt bớt dòng và thêm dấu ... */
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp, 1); /* Nếu sau này muốn tạo biến truyền vào thì sẽ sử dụng biến --line-clamp, còn nếu không sẽ sử dụng biến mặc định 1 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* Phần tử nào có đồng thời 2 class .line-clamp và .line-2 mới thực hiện thay đổi giá trị --line-clamp thành 2 và truyền vào var()*/
+.line-clamp.line-2 {
+  --line-clamp: 2;
+}
+
+/* Fix lỗi khi người dùng nhập 1 từ quá dài không có khoảng trắng khiến nó không thể xuống dòng gây ra vỡ giao diện */
+.break-all {
+  word-break: break-all;
 }
 /* =============header============= */
 .header {
@@ -312,6 +329,7 @@ a {
   gap: 30px;
 }
 .popular .course-item {
+  flex: 1; /* 89.9. FlexBox: Chia tỉ lệ 1:1 để khi nhập tiêu đề, mô tả quá dài sẽ không làm vỡ giao diện */
   border-radius: 12px;
   border: 1px solid #e2dfda;
   background: #fff;
