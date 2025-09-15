@@ -471,7 +471,7 @@ a {
   line-height: 1.54; /* 153.846% */
 }
 
-/* =========================== features =========================== */
+/* =========================== features 1=========================== */
 .features {
   margin-top: 135px;
   padding: 65px 0;
@@ -517,4 +517,22 @@ a {
   width: 137px;
   height: 50px;
   background: var(--primary-color);
+}
+
+/* =========================== features 2=========================== */
+.features-2nd .body {
+  flex-direction: row-reverse;
+}
+
+.features-2nd {
+  margin-top: 70px; /* Cả 2 khối features 1 và features 2 đều có padding là 65px => 200 - 130 = 70 */
+}
+
+.features-2nd .content {
+  width: 49%; /* khối .content rộng bằng 49%% khối .main-content */
+}
+
+.features-2nd .images img {
+  width: 470px;
+  height: 440px;
 }
