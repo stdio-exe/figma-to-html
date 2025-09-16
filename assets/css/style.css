@@ -560,12 +560,14 @@ a {
   gap: 30px;
   display: flex;
   margin-top: 55px;
+  overflow: hidden;
 }
 
 .blogs .item {
-  width: 33.33%;
+  width: calc(33.33% - 20px); /* width của 3 item cộng lại xấp xỉ 100% + với việc flex-shrink: 0; khiến cho ảnh ko thể co lại để chứa thêm gap */
   border-radius: 16px;
   background: #fff;
+  flex-shrink: 0; /* Ảnh không bị co lại khi nhiều ảnh vượt box chứa */
 }
 .blogs .item:hover {
   box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.05);
@@ -624,8 +626,29 @@ a {
 
 .blogs .item .btn {
   margin-top: 12px;
+  font-size: 1.4rem;
 }
 
 .blogs .item .btn:hover {
   background: var(--primary-color);
+}
+
+.blogs .dots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 38px;
+}
+
+.blogs .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5f5b53;
+  cursor: pointer;
+}
+
+.blogs .dot.active {
+  background: var(--primary-color);
+  cursor: default;
 }
